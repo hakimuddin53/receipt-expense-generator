@@ -1,7 +1,7 @@
 
-import { ReceiptUploader } from "@/components/ReceiptUploader";
-import { ReceiptPreview } from "@/components/ReceiptPreview";
-import { ExpenseDetails } from "@/components/ExpenseDetails";
+import ReceiptUploader from "@/components/ReceiptUploader";
+import ReceiptPreview from "@/components/ReceiptPreview";
+import ExpenseDetails from "@/components/ExpenseDetails";
 import { useState } from "react";
 import { Receipt } from "@/types/receipt";
 import { extractReceiptData } from "@/services/receiptService";

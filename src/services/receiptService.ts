@@ -1,4 +1,3 @@
-
 import { Receipt, ReceiptItem } from "@/types/receipt";
 
 // Categories for the mock data
@@ -105,3 +104,6 @@ export const analyzeReceipt = async (file: File): Promise<Receipt> => {
   
   return receipt;
 };
+
+// Add this new export that aliases analyzeReceipt to extractReceiptData
+export const extractReceiptData = analyzeReceipt;
