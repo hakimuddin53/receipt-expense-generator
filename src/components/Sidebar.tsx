@@ -39,8 +39,10 @@ export const AppSidebar = () => {
     <Sidebar>
       <SidebarHeader className="border-b p-4">
         <div className="flex items-center gap-2">
-          <Receipt className="h-6 w-6" />
-          <h1 className="text-xl font-bold">Receipt Scanner</h1>
+          <div className="bg-primary/20 p-2 rounded-full">
+            <Receipt className="h-6 w-6 text-primary" />
+          </div>
+          <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">Receipt Scanner</h1>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -51,8 +53,13 @@ export const AppSidebar = () => {
               isActive={isActive("/")}
               tooltip="Dashboard"
             >
-              <Link to="/">
-                <Home />
+              <Link to="/" className="group">
+                <div className={cn(
+                  "p-2 rounded-full transition-colors",
+                  isActive("/") ? "bg-primary text-white" : "group-hover:bg-primary/10"
+                )}>
+                  <Home className="h-5 w-5" />
+                </div>
                 <span>Dashboard</span>
               </Link>
             </SidebarMenuButton>
@@ -63,8 +70,13 @@ export const AppSidebar = () => {
               isActive={isActive("/upload")}
               tooltip="Upload Receipt"
             >
-              <Link to="/upload">
-                <UploadCloud />
+              <Link to="/upload" className="group">
+                <div className={cn(
+                  "p-2 rounded-full transition-colors",
+                  isActive("/upload") ? "bg-primary text-white" : "group-hover:bg-primary/10"
+                )}>
+                  <UploadCloud className="h-5 w-5" />
+                </div>
                 <span>Upload Receipt</span>
               </Link>
             </SidebarMenuButton>
@@ -75,8 +87,13 @@ export const AppSidebar = () => {
               isActive={isActive("/profile")}
               tooltip="Profile"
             >
-              <Link to="/profile">
-                <User />
+              <Link to="/profile" className="group">
+                <div className={cn(
+                  "p-2 rounded-full transition-colors",
+                  isActive("/profile") ? "bg-primary text-white" : "group-hover:bg-primary/10"
+                )}>
+                  <User className="h-5 w-5" />
+                </div>
                 <span>Profile</span>
               </Link>
             </SidebarMenuButton>
@@ -86,11 +103,13 @@ export const AppSidebar = () => {
       <SidebarFooter className="p-4 border-t">
         <Button 
           variant="ghost" 
-          className="w-full justify-start" 
+          className="w-full justify-start group hover:bg-destructive/10" 
           onClick={handleLogout}
         >
-          <LogOut className="mr-2 h-4 w-4" />
-          Logout
+          <div className="p-2 rounded-full group-hover:bg-destructive/10">
+            <LogOut className="h-5 w-5 text-destructive" />
+          </div>
+          <span className="text-destructive">Logout</span>
         </Button>
       </SidebarFooter>
     </Sidebar>
@@ -103,7 +122,7 @@ export const SidebarLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex min-h-screen w-full">
         <AppSidebar />
         <div className="flex-1 overflow-auto">
-          <header className="border-b p-4 bg-background">
+          <header className="border-b p-4 bg-background/80 backdrop-blur-sm sticky top-0 z-10">
             <div className="flex items-center justify-between">
               <SidebarTrigger />
               <div className="ml-auto"></div>

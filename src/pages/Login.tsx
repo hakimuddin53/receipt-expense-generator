@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
+import { Receipt } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -49,20 +50,31 @@ const Login = () => {
 
   return (
     <div className="flex h-screen w-full items-center justify-center auth-page">
-      <div className="absolute inset-0 bg-background/50 backdrop-blur-sm" />
-      <Card className="w-full max-w-md shadow-lg relative z-10 border border-purple-100 dark:border-purple-900">
-        <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-        <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
+      
+      <Card className="w-full max-w-md shadow-xl relative z-10 border border-purple-100 dark:border-purple-900 overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-primary" />
         
-        <CardHeader className="space-y-1 relative">
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">Login</CardTitle>
+        <div className="relative pt-8 flex justify-center">
+          <div className="bg-gradient-to-b from-primary/20 to-primary/5 rounded-full p-4 shadow-lg">
+            <Receipt className="h-10 w-10 text-primary animate-pulse-scale" />
+          </div>
+        </div>
+        
+        <CardHeader className="space-y-1 relative text-center pt-4">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">
+            Login to Receipt Scanner
+          </CardTitle>
           <CardDescription>
             Enter your credentials to sign in to your account
           </CardDescription>
         </CardHeader>
         
         <form onSubmit={handleLogin}>
-          <CardContent className="space-y-4 relative">
+          <CardContent className="space-y-4 relative p-6">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -94,10 +106,10 @@ const Login = () => {
             </div>
           </CardContent>
           
-          <CardFooter className="flex flex-col space-y-4 relative">
+          <CardFooter className="flex flex-col space-y-4 relative p-6 pt-0">
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-primary to-purple-700 hover:from-primary/90 hover:to-purple-600 transition-all duration-300" 
+              className="w-full gradient-button text-white shadow-lg hover:shadow-primary/25" 
               disabled={isLoading}
             >
               {isLoading ? "Signing in..." : "Sign in"}

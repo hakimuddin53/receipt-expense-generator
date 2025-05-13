@@ -8,7 +8,8 @@ import { extractReceiptData } from "@/services/receiptService";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { UploadCloud } from "lucide-react";
+import { UploadCloud, Plus, Receipt as ReceiptIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   const [receiptImage, setReceiptImage] = useState<string | null>(null);
@@ -46,39 +47,53 @@ const Index = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-fade-in">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Receipt Scanner Dashboard</h1>
-        <Button onClick={() => navigate("/upload")}>
-          <UploadCloud className="mr-2 h-4 w-4" />
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">
+            Receipt Scanner Dashboard
+          </h1>
+          <p className="text-muted-foreground">Upload, scan, and manage your receipts in one place.</p>
+        </div>
+        <Button onClick={() => navigate("/upload")} className="gradient-button text-white">
+          <Plus className="mr-2 h-4 w-4" />
           New Receipt
         </Button>
       </div>
       
       {!receipt ? (
-        <div className="grid place-items-center py-12">
-          <div className="text-center max-w-md space-y-4">
-            <h2 className="text-xl font-semibold">Welcome to Receipt Scanner</h2>
-            <p className="text-muted-foreground">
-              Upload a receipt to get started. We'll analyze it and provide expense details.
-            </p>
-            <Button onClick={() => navigate("/upload")}>
-              <UploadCloud className="mr-2 h-4 w-4" />
-              Upload Receipt
-            </Button>
+        <Card className="glass-card p-8 text-center">
+          <div className="grid place-items-center py-12">
+            <div className="max-w-md space-y-6">
+              <div className="bg-primary/10 p-6 rounded-full inline-block mx-auto floating">
+                <ReceiptIcon className="h-12 w-12 text-primary" />
+              </div>
+              <h2 className="text-2xl font-semibold">Welcome to Receipt Scanner</h2>
+              <p className="text-muted-foreground">
+                Upload a receipt to get started. We'll analyze it and provide expense details automatically.
+              </p>
+              <Button onClick={() => navigate("/upload")} size="lg" className="mx-auto gradient-button text-white">
+                <UploadCloud className="mr-2 h-5 w-5" />
+                Upload Receipt
+              </Button>
+            </div>
           </div>
-        </div>
+        </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-6">
-            {receiptImage && (
-              <ReceiptPreview imageUrl={receiptImage} isLoading={isLoading} />
-            )}
-          </div>
-          <div>
-            {receipt && <ExpenseDetails receipt={receipt} isLoading={isLoading} />}
-          </div>
-        </div>
+        <Card className="border border-purple-100 dark:border-purple-900 overflow-hidden shadow-lg">
+          <CardContent className="p-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+              <div className="space-y-6">
+                {receiptImage && (
+                  <ReceiptPreview imageUrl={receiptImage} />
+                )}
+              </div>
+              <div>
+                {receipt && <ExpenseDetails receipt={receipt} isLoading={isLoading} />}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       )}
     </div>
   );
