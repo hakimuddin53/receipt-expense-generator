@@ -4,10 +4,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 interface ReceiptPreviewProps {
   imageUrl: string;
-  isAnalyzing: boolean;
+  isLoading: boolean;
 }
 
-const ReceiptPreview = ({ imageUrl, isAnalyzing }: ReceiptPreviewProps) => {
+const ReceiptPreview = ({ imageUrl, isLoading }: ReceiptPreviewProps) => {
   return (
     <Card className="shadow-md overflow-hidden">
       <CardHeader className="bg-receipt-primary text-white py-4">
@@ -21,7 +21,7 @@ const ReceiptPreview = ({ imageUrl, isAnalyzing }: ReceiptPreviewProps) => {
             className="w-full h-full object-contain" 
           />
           
-          {isAnalyzing && (
+          {isLoading && (
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center">
                 <div className="mb-2 w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center animate-pulse">

@@ -39,6 +39,12 @@ const Index = () => {
     }
   };
 
+  const handleReset = () => {
+    setReceiptImage(null);
+    setReceipt(null);
+    setIsLoading(false);
+  };
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -70,7 +76,7 @@ const Index = () => {
             )}
           </div>
           <div>
-            {receipt && <ExpenseDetails receipt={receipt} />}
+            {receipt && <ExpenseDetails receipt={receipt} isLoading={isLoading} />}
           </div>
         </div>
       )}

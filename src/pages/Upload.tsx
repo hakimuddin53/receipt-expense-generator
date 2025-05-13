@@ -35,18 +35,28 @@ const Upload = () => {
     }
   };
 
+  const handleReset = () => {
+    setReceiptImage(null);
+    setReceipt(null);
+    setIsLoading(false);
+  };
+
   return (
     <div className="container mx-auto max-w-5xl space-y-8">
       <h1 className="text-3xl font-bold">Upload Receipt</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
-          <ReceiptUploader onFileUpload={handleFileUpload} />
+          <ReceiptUploader 
+            onFileUpload={handleFileUpload} 
+            onReset={handleReset} 
+            hasFile={!!receiptImage} 
+          />
           {receiptImage && (
             <ReceiptPreview imageUrl={receiptImage} isLoading={isLoading} />
           )}
         </div>
         <div>
-          {receipt && <ExpenseDetails receipt={receipt} />}
+          {receipt && <ExpenseDetails receipt={receipt} isLoading={isLoading} />}
         </div>
       </div>
     </div>
