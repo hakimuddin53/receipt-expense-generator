@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				receipt: {
-					primary: '#3b82f6',
-					secondary: '#1e3a8a',
-					accent: '#dbeafe',
+					primary: '#9b87f5',
+					secondary: '#7E69AB',
+					accent: '#e5deff',
 					background: '#f9fafb'
 				}
 			},
@@ -101,6 +101,9 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-scale': 'pulse-scale 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			}
 		}
 	},
