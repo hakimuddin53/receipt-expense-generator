@@ -6,16 +6,13 @@ import { useState } from "react";
 import { Receipt } from "@/types/receipt";
 import { extractReceiptData } from "@/services/receiptService";
 import { toast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import { UploadCloud, Plus, Receipt as ReceiptIcon } from "lucide-react";
+import { ReceiptIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   const [receiptImage, setReceiptImage] = useState<string | null>(null);
   const [receipt, setReceipt] = useState<Receipt | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleFileUpload = async (file: File) => {
     setIsLoading(true);
@@ -48,17 +45,11 @@ const Index = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <div className="space-y-1">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">
-            Receipt Scanner Dashboard
-          </h1>
-          <p className="text-muted-foreground">Upload, scan, and manage your receipts in one place.</p>
-        </div>
-        <Button onClick={() => navigate("/upload")} className="gradient-button text-white">
-          <Plus className="mr-2 h-4 w-4" />
-          New Receipt
-        </Button>
+      <div className="space-y-1">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-700 bg-clip-text text-transparent">
+          Receipt Scanner Dashboard
+        </h1>
+        <p className="text-muted-foreground">Upload, scan, and manage your receipts in one place.</p>
       </div>
       
       {!receipt ? (
@@ -72,10 +63,6 @@ const Index = () => {
               <p className="text-muted-foreground">
                 Upload a receipt to get started. We'll analyze it and provide expense details automatically.
               </p>
-              <Button onClick={() => navigate("/upload")} size="lg" className="mx-auto gradient-button text-white">
-                <UploadCloud className="mr-2 h-5 w-5" />
-                Upload Receipt
-              </Button>
             </div>
           </div>
         </Card>
