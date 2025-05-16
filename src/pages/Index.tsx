@@ -85,7 +85,10 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
               <div className="space-y-6">
                 {receiptImage && (
-                  <ReceiptPreview imageUrl={receiptImage} />
+                  <ReceiptPreview 
+                    imageUrl={receiptImage} 
+                    isLoading={isLoading} 
+                  />
                 )}
               </div>
               <div>

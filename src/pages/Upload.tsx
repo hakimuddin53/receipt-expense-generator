@@ -63,7 +63,10 @@ const Upload = () => {
                 hasFile={!!receiptImage} 
               />
               {receiptImage && (
-                <ReceiptPreview imageUrl={receiptImage} />
+                <ReceiptPreview 
+                  imageUrl={receiptImage} 
+                  isLoading={isLoading} 
+                />
               )}
             </div>
             <div>
