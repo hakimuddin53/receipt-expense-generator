@@ -17,7 +17,7 @@ const recentExpenses: Receipt[] = [
     merchant: "Whole Foods",
     date: "May 15, 2025",
     total: 82.47,
-    currency: "$",
+    currency: "RM",
     category: "Groceries",
     tax: 7.25
   },
@@ -26,7 +26,7 @@ const recentExpenses: Receipt[] = [
     merchant: "Starbucks",
     date: "May 14, 2025",
     total: 12.35,
-    currency: "$",
+    currency: "RM",
     category: "Dining",
     tax: 1.08
   },
@@ -35,7 +35,7 @@ const recentExpenses: Receipt[] = [
     merchant: "Uber",
     date: "May 13, 2025",
     total: 24.50,
-    currency: "$",
+    currency: "RM",
     category: "Transportation",
     tax: 1.95
   },
@@ -44,7 +44,7 @@ const recentExpenses: Receipt[] = [
     merchant: "Amazon",
     date: "May 10, 2025",
     total: 67.99,
-    currency: "$",
+    currency: "RM",
     category: "Shopping",
     tax: 5.99
   },
@@ -53,7 +53,7 @@ const recentExpenses: Receipt[] = [
     merchant: "Netflix",
     date: "May 1, 2025",
     total: 14.99,
-    currency: "$",
+    currency: "RM",
     category: "Entertainment",
     tax: 0.00
   }

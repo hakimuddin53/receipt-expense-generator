@@ -33,7 +33,7 @@ const ExpenseSummary = () => {
             ))}
           </Pie>
           <Tooltip 
-            formatter={(value) => [`$${value}`, 'Amount']}
+            formatter={(value) => [`RM${value}`, 'Amount']}
             contentStyle={{
               backgroundColor: 'hsl(var(--card))',
               borderColor: 'hsl(var(--border))',

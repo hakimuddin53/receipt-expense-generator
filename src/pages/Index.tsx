@@ -26,7 +26,7 @@ const Index = () => {
           <CardContent className="p-6 flex flex-row items-center justify-between">
             <div className="space-y-1">
               <p className="text-sm text-muted-foreground">Total Expenses</p>
-              <p className="text-2xl font-bold">$1,248.42</p>
+              <p className="text-2xl font-bold">RM1,248.42</p>
               <p className="text-xs text-green-500 flex items-center">
                 <ArrowDown className="h-3 w-3 mr-1" /> 12% from last month
               </p>
@@ -41,7 +41,7 @@ const Index = () => {
           <CardContent className="p-6 flex flex-row items-center justify-between">
             <div className="space-y-1">
               <p className="text-sm text-muted-foreground">Monthly Budget</p>
-              <p className="text-2xl font-bold">$2,000.00</p>
+              <p className="text-2xl font-bold">RM2,000.00</p>
               <p className="text-xs text-green-500 flex items-center">
                 <ArrowDown className="h-3 w-3 mr-1" /> 38% remaining
               </p>
@@ -73,7 +73,7 @@ const Index = () => {
               <p className="text-sm text-muted-foreground">Top Category</p>
               <p className="text-2xl font-bold">Dining</p>
               <p className="text-xs text-muted-foreground flex items-center">
-                $386.20 this month
+                RM386.20 this month
               </p>
             </div>
             <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-full">

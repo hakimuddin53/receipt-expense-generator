@@ -70,7 +70,7 @@ const ExpenseChart = () => {
               borderRadius: '8px',
               fontSize: '12px',
             }}
-            formatter={(value) => [`$${value}`, undefined]}
+            formatter={(value) => [`RM${value}`, undefined]}
           />
           <Legend />
           <Bar dataKey="Groceries" fill="#9b87f5" radius={[4, 4, 0, 0]} />

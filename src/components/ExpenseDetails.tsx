@@ -1,4 +1,3 @@
-
 import { Receipt as ReceiptType } from "@/types/receipt";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -91,7 +90,7 @@ const ExpenseDetails = ({ receipt, isLoading }: ExpenseDetailsProps) => {
                   {receipt.items.map((item) => (
                     <div key={item.id} className="flex justify-between text-sm">
                       <span>{item.name} (x{item.quantity})</span>
-                      <span>{receipt.currency} {item.total.toFixed(2)}</span>
+                      <span>RM {item.total.toFixed(2)}</span>
                     </div>
                   ))}
                 </div>
@@ -103,14 +102,14 @@ const ExpenseDetails = ({ receipt, isLoading }: ExpenseDetailsProps) => {
             <div className="flex justify-between items-center">
               <span className="text-lg font-medium">Total</span>
               <span className="text-2xl font-bold text-receipt-primary">
-                {receipt.currency} {receipt.total.toFixed(2)}
+                RM {receipt.total.toFixed(2)}
               </span>
             </div>
             
             {receipt.tax !== undefined && (
               <div className="flex justify-between text-sm text-gray-500">
                 <span>Tax</span>
-                <span>{receipt.currency} {receipt.tax.toFixed(2)}</span>
+                <span>RM {receipt.tax.toFixed(2)}</span>
               </div>
             )}
             

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Receipt } from "@/types/receipt";
 import { extractReceiptData } from "@/services/receiptService";
@@ -24,6 +23,8 @@ const Upload = () => {
     try {
       // This is mocked and would be replaced with a real API call
       const data = await extractReceiptData(file);
+      // Override the currency to RM
+      data.currency = "RM";
       setReceipt(data);
       toast({
         title: "Receipt processed",
